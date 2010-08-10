@@ -1,0 +1,18 @@
+Setting:
+  actAs:
+    Timestampable:
+  columns:
+    id:
+      primary: true
+      unsigned: true
+      type: integer
+      notnull: true
+      autoincrement: true
+    setting_name:
+      type: string(32)
+      notnull: true
+    text:
+      type: string(512)
+  indexes:
+    IX_setting_1:
+      fields: [setting_name]
