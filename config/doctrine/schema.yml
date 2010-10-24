@@ -14,5 +14,9 @@ Setting:
     text:
       type: string(512)
   indexes:
-    IX_setting_1:
+    IX_plugin_setting_table_1:
       fields: [setting_name]
+  options:
+    type: INNODB
+    collate: utf8_unicode_ci
+    charset: utf8

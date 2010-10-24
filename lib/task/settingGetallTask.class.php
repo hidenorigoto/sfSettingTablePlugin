@@ -2,6 +2,7 @@
 
 class settingGetallTask extends sfBaseTask
 {
+
   protected function configure()
   {
     $this->addOptions(array(
@@ -11,8 +12,8 @@ class settingGetallTask extends sfBaseTask
       // add your own options here
     ));
 
-    $this->namespace        = 'setting';
-    $this->name             = 'get-all';
+    $this->namespace = 'setting';
+    $this->name = 'get-all';
     $this->briefDescription = '';
     $this->detailedDescription = <<<EOF
 The [setting:get-all|INFO] task does things.
@@ -29,8 +30,11 @@ EOF;
     $connection = $databaseManager->getDatabase($options['connection'])->getConnection();
 
     $settings = SettingTable::getInstance()->findAll();
-      foreach ($settings as $setting) {
-          $this->logSection($setting->getSettingName(), $setting->getText());
-      }
+    $this->log(sprintf('%s records found.', count($settings)));
+    foreach ($settings as $setting)
+    {
+      $this->logSection($setting->getSettingName(), $setting->getText());
+    }
   }
+
 }
